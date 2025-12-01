@@ -1,24 +1,28 @@
 -- ========= CRIAÇÃO DAS TABELAS (DDL) =========
 
 -- Tabela de domínio para Editoras
+
 CREATE TABLE EDITORA (
     ID_Editora INT PRIMARY KEY AUTO_INCREMENT,
     Nome_Editora VARCHAR(100) NOT NULL UNIQUE
 );
 
 -- Tabela de domínio para Autores
+
 CREATE TABLE AUTOR (
     ID_Autor INT PRIMARY KEY AUTO_INCREMENT,
     Nome_Autor VARCHAR(100) NOT NULL UNIQUE
 );
 
 -- Tabela de domínio para Gêneros
+
 CREATE TABLE GENERO (
     ID_Genero INT PRIMARY KEY AUTO_INCREMENT,
     Nome_Genero VARCHAR(50) NOT NULL UNIQUE
 );
 
 -- Tabela principal de Livros
+
 CREATE TABLE LIVRO (
     ID_Livro INT PRIMARY KEY AUTO_INCREMENT,
     ID_Editora INT NOT NULL,
@@ -34,6 +38,7 @@ CREATE TABLE LIVRO (
 );
 
 -- Tabela principal de Clientes
+
 CREATE TABLE CLIENTE (
     ID_Cliente INT PRIMARY KEY AUTO_INCREMENT,
     Nome VARCHAR(255) NOT NULL,
@@ -43,6 +48,7 @@ CREATE TABLE CLIENTE (
 );
 
 -- Tabela de Endereços, associada a Clientes
+
 CREATE TABLE ENDERECO (
     ID_Endereco INT PRIMARY KEY AUTO_INCREMENT,
     ID_Cliente INT NOT NULL,
@@ -58,6 +64,7 @@ CREATE TABLE ENDERECO (
 );
 
 -- Tabela principal de Pedidos
+
 CREATE TABLE PEDIDO (
     ID_Pedido INT PRIMARY KEY AUTO_INCREMENT,
     ID_Cliente INT NOT NULL,
@@ -70,6 +77,7 @@ CREATE TABLE PEDIDO (
 );
 
 -- Tabela associativa para Livro-Autor (N-M)
+
 CREATE TABLE LIVRO_AUTOR (
     ID_Livro INT NOT NULL,
     ID_Autor INT NOT NULL,
@@ -79,6 +87,7 @@ CREATE TABLE LIVRO_AUTOR (
 );
 
 -- Tabela associativa para Livro-Gênero (N-M)
+
 CREATE TABLE LIVRO_GENERO (
     ID_Livro INT NOT NULL,
     ID_Genero INT NOT NULL,
@@ -88,6 +97,7 @@ CREATE TABLE LIVRO_GENERO (
 );
 
 -- Tabela associativa para Pedido-Livro (N-M)
+
 CREATE TABLE ITEM_PEDIDO (
     ID_Pedido INT NOT NULL,
     ID_Livro INT NOT NULL,
